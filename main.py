@@ -9,7 +9,7 @@ def sumar(a, b, option):
     if(option == 2):
         return a - b
     else:
-        print("opcion equivocada")
+        print("opcion equivocadaa")
         
 
 print(sumar(num1, num2, option))
