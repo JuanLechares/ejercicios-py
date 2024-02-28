@@ -20,13 +20,13 @@ class Fabrica:
 class Sucursal:
     def __init__(self, nombre):
         self.nombre=nombre
-        self.Instrumentos=[]
+        self.instrumentos=[]
 
     def agregarInstrumento(self, instrumento):
-        self.Instrumentos.append(instrumento)
+        self.instrumentos.append(instrumento)
     
     def obtenerListaInstrumento(self):
-        return self.Instrumentos
+        return self.instrumentos
 
 class Instrumento:
     def __init__(self, id, precio, tipo):
