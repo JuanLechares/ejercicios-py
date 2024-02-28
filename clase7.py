@@ -7,14 +7,21 @@ class Fabrica:
 
     def listarInstrumentos(self):
         for sucursal in self.listSucursales:
-            for instrumentos in sucursal.obtenerListaInstrumento():
-                print(instrumentos.id, instrumentos.precio, instrumentos.tipo)
+            for instrumento in sucursal.obtenerListaInstrumento():
+                print(instrumento.id, instrumento.precio, instrumento.tipo)
 
     def instrumentosPorTipo(self, tipo):
         for sucursal in self.listSucursales:
-            for instrumentos in sucursal.obtenerListaInstrumento():
-                if(instrumentos.tipo == tipo):
-                    print(instrumentos.id, instrumentos.precio, instrumentos.tipo)
+            for instrumento in sucursal.obtenerListaInstrumento():
+                if(instrumento.tipo == tipo):
+                    print(instrumento.id, instrumento.precio, instrumento.tipo)
+
+    def borrarInstrumento(self, instrumentoId):
+        for sucursal in self.listSucursales:
+            for instrumento in sucursal.obtenerListaInstrumento():
+                if(instrumento.id == instrumentoId):
+                   sucursal.obtenerListaInstrumento().remove(instrumento)
+
 
 
 class Sucursal:
@@ -53,6 +60,8 @@ sucursal.agregarInstrumento(instrumento2)
 sucursal.agregarInstrumento(instrumento3)
 
 fabrica.listarInstrumentos()
+print("--------------")
 fabrica.instrumentosPorTipo(TipoInstrumento.CAT1)
-fabrica.instrumentosPorTipo(TipoInstrumento.CAT2)
-
+print("--------------")
+fabrica.borrarInstrumento("1")
+fabrica.listarInstrumentos()
