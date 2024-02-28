@@ -21,6 +21,26 @@ class Fabrica:
             for instrumento in sucursal.obtenerListaInstrumento():
                 if(instrumento.id == instrumentoId):
                    sucursal.obtenerListaInstrumento().remove(instrumento)
+    
+    def porcInstrumentoPorTipo(self, nombreSucursal):
+        for sucursal in self.listSucursales:
+            if(sucursal.nombre == nombreSucursal):
+                cat1=0
+                cat2=0
+                cat3=0
+                for instrumento in sucursal.obtenerListaInstrumento():
+                    if(instrumento.tipo == TipoInstrumento.CAT1):
+                        cat1+=1
+                    elif(instrumento.tipo == TipoInstrumento.CAT2):
+                        cat2+=1
+                    elif(instrumento.tipo == TipoInstrumento.CAT3):
+                        cat3+=1
+                print(sucursal.nombre)
+                print(TipoInstrumento.CAT1, ( cat1 * 100) / (len(sucursal.obtenerListaInstrumento()) ), "%")
+                print(TipoInstrumento.CAT2, (cat2 * 100) / (len(sucursal.obtenerListaInstrumento())  ), "%")
+                print(TipoInstrumento.CAT3,(cat3 * 100) / (len(sucursal.obtenerListaInstrumento())  ), "%") 
+                   
+            
 
 
 
@@ -65,3 +85,6 @@ fabrica.instrumentosPorTipo(TipoInstrumento.CAT1)
 print("--------------")
 fabrica.borrarInstrumento("1")
 fabrica.listarInstrumentos()
+
+print("--------------")
+fabrica.porcInstrumentoPorTipo("dia")
